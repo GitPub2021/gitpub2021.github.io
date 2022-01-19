@@ -31,6 +31,17 @@ pokemonList.push(pokemon1);
 pokemonList.push(pokemon2);
 pokemonList.push(pokemon3);
 
-/* Check out if the code works, not needed for actual program thus commented out
-console.log(pokemonList) ;
-*/
+;
+
+/* Loop through the created Pokemons and show their names and heights
+add <p> elements to have better display with line breaks ;
+check also if height bigger 5.6 and show comment */
+
+for(let i = 0;i<=(pokemonList.length -1);i++) {
+  x = pokemonList[i].pokemonName;
+  y = pokemonList[i].height;
+  heightComment = '';
+  if(y>5.6) {heightComment = ' - Wow, that is huge for an Italian!'};
+  z = '<p>' + x + ' (height: ' + y + ') ' + heightComment + '</p>';
+  document.write(z);
+};
