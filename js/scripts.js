@@ -1,3 +1,5 @@
+
+
 /* Define empty array for Pokemons */
 pokemonList = [] ;
 
@@ -37,11 +39,18 @@ pokemonList.push(pokemon3);
 add <p> elements to have better display with line breaks ;
 check also if height bigger 5.6 and show comment */
 
-for(let i = 0;i<=(pokemonList.length -1);i++) {
-  x = pokemonList[i].pokemonName;
-  y = pokemonList[i].height;
-  heightComment = '';
-  if(y>5.6) {heightComment = ' - Wow, that is huge for an Italian!'};
-  z = '<p>' + x + ' (height: ' + y + ') ' + heightComment + '</p>';
-  document.write(z);
-};
+
+function addComment(height) {
+  if(!isNaN(parseFloat(height)) && isFinite(parseFloat(height))){
+  x = parseFloat(height)
+  };
+  if(x>5.6){
+  return ' - Wow, that\'s huge!'
+  } else {return ''};
+}
+
+function myLoopFunction(pokemon) {
+  document.write('<p>' + pokemon.pokemonName + ' (height: ' + pokemon.height + ')' + addComment(pokemon.height) + '</p>');
+}
+
+pokemonList.forEach(myLoopFunction);
