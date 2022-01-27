@@ -82,11 +82,11 @@ a:active {
   background-color: inherit;
 }
 
-.button, button {
+.button, button, .pokemon-button {
   /* overwrites browser defaults */
   /* resets the border */
   border: none;
-  display: inline-block;
+  display: inherit;
   /* takes the font from the outer container */
   font-family: inherit;
   /* style button */
@@ -129,8 +129,13 @@ button:focus,
   text-align: right;
 }
 
-.navigation-list {
+.navigation-list, .pokemon-list {
   list-style-type: none;
+}
+
+.pokemon-list li {
+  display: block;
+  margin-left: 15px;
 }
 
 .navigation-list li {

@@ -62,14 +62,28 @@ function addComment(height) {
   } else {return ''};
 };
 
-/* Define Looping through heights function with help of forEach() */
+/* function that outputs pokemon objects into the console */
+function showDetails(pokemon) {
+  console.log(pokemon);
+}
 
-function myLoopFunction(pokemon) {
-  document.write('<p>' + pokemon.pokemonName + ' (height: ' + pokemon.height + ')' + addComment(pokemon.height) + '</p>');
+/* Define Function that does create for each pokemon object a button nested in a list item */
+
+function addListItem(pokemon) {
+  /* document.write('<p>' + pokemon.pokemonName + ' (height: ' + pokemon.height + ')' + addComment(pokemon.height) + '</p>'); */
+  let parentalelement = document.querySelector('.pokemon-list');
+  let listItem = document.createElement('li');
+  let button = document.createElement('button');
+  button.classList.add('pokemon-button');
+  button.innerText = pokemon.pokemonName;
+  listItem.appendChild(button);
+  parentalelement.appendChild(listItem);
+  button.addEventListener('click', function (event) {
+    showDetails(pokemon);
+  });
 };
 
 
+/* Execute addListItem to loop through the pokemon objects and create a new button for each of them */
 
-/* Actually do the document.write() using IIFE and myLoopFunction() */
-
-pokemonRepository.getAll().forEach(myLoopFunction);
+pokemonRepository.getAll().forEach(addListItem);
